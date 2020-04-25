@@ -1,0 +1,367 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    background-color: #dde1e7;
+}
+
+.container {
+    max-width: 1135px;
+    margin: auto;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.control {
+    border: none;
+    padding: 10px 15px;
+    background-color: #19679b;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+    position: absolute;
+    top: 15px;
+    left: -43px;
+    font-size: 1rem;
+    transition: left .5s ease;
+    cursor: pointer;
+    outline: none;
+    i {
+        pointer-events: none;
+        animation: loder 6s linear infinite;
+    }
+}
+
+.control.active {
+    left: -283px;
+}
+
+.color-scame {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    background-color: #19679b;
+    height: auto;
+    width: 250px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px 0 0 5px;
+    visibility: hidden;
+    transition: left .5s ease, visibility .4s ease;
+    z-index: -1;
+    .color-btn {
+        height: 54px;
+        width: 54px;
+        border-radius: 50%;
+        border: none;
+        margin: 5px;
+        cursor: pointer;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #dad6d6;
+    }
+    .dark {
+        background-color: rgb(53, 53, 53);
+    }
+    .sky {
+        background-color: #19afaf;
+    }
+    .grayBlue {
+        background-color: #353b77;
+    }
+    .white {
+        background-color: #dde1e7;
+        color: rgb(53, 53, 53);
+    }
+    .whiteGreen {
+        background-color: #41aa5b;
+    }
+    .pink {
+        background-color: #c22f9d;
+    }
+}
+
+body.dark {
+    background-color: rgb(53, 53, 53) !important;
+    .calculator-grid {
+        background-color: rgb(53, 53, 53) !important;
+        button {
+            background-color: rgb(53, 53, 53) !important;
+            color: #dde1e7;
+            box-shadow: 3px 3px 5px #202125, -3px -3px 7px #3e3e3e !important;
+            &::after {
+                box-shadow: inset 3px 3px 5px #202125, inset -3px -3px 7px #3e3e3e !important;
+            }
+        }
+        .output {
+            background-color: rgb(53, 53, 53) !important;
+            box-shadow: 3px 3px 5px #202125, -3px -3px 7px #3e3e3e !important;
+            &::after {
+                box-shadow: inset 3px 3px 5px #202125, inset -3px -3px 7px #3e3e3e !important;
+            }
+            .previous-operand {
+                color: #adadad;
+            }
+            .current-operand {
+                color: #fff;
+            }
+        }
+    }
+}
+
+body.white {
+    background-color: #dde1e7 !important;
+    .calculator-grid {
+        background-color: #dde1e7 !important;
+        button {
+            background-color: #dde1e7 !important;
+            color: rgb(53, 53, 53);
+            box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .288);
+            &::after {
+                box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .288);
+            }
+        }
+        .output {
+            background-color: #dde1e7 !important;
+            box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .288);
+            &::after {
+                box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .288);
+            }
+            .previous-operand {
+                color: rgb(94, 94, 94);
+            }
+            .current-operand {
+                color: rgb(53, 53, 53);
+            }
+        }
+    }
+}
+
+body.sky {
+    background-color: #19afaf !important;
+    .calculator-grid {
+        background-color: #19afaf !important;
+        button {
+            background-color: #19afaf !important;
+            color: #dde1e7;
+            box-shadow: -3px -3px 7px #ffffff60, 3px 3px 5px rgba(94, 104, 121, 0.4);
+            &::after {
+                box-shadow: inset -3px -3px 7px #ffffff60, inset 3px 3px 5px rgba(94, 104, 121, .4);
+            }
+        }
+        .output {
+            background-color: #19afaf !important;
+            box-shadow: -3px -3px 7px #ffffff60, 3px 3px 5px rgba(94, 104, 121, .288);
+            &::after {
+                box-shadow: inset -3px -3px 7px #ffffff60, inset 3px 3px 5px rgba(94, 104, 121, .4);
+            }
+            .previous-operand {
+                color: #d6d6d6 !important;
+            }
+            .current-operand {
+                color: rgb(235, 235, 235) !important;
+            }
+        }
+    }
+}
+
+body.grayBlue {
+    background-color: #353b77 !important;
+    .calculator-grid {
+        background-color: #353b77 !important;
+        button {
+            background-color: #353b77 !important;
+            color: #dde1e7;
+            box-shadow: -3px -3px 7px #484c79, 3px 3px 5px rgba(24, 38, 63, 0.541);
+            &::after {
+                box-shadow: inset -3px -3px 7px #484c79, inset 3px 3px 5px rgba(24, 38, 63, 0.541);
+            }
+        }
+        .output {
+            background-color: #353b77 !important;
+            box-shadow: -3px -3px 7px #484c79, 3px 3px 5px rgba(24, 38, 63, 0.541);
+            &::after {
+                box-shadow: inset -3px -3px 7px #484c79, inset 3px 3px 5px rgba(24, 38, 63, 0.541);
+            }
+            .previous-operand {
+                color: #a5a5a5 !important;
+            }
+            .current-operand {
+                color: rgb(235, 235, 235) !important;
+            }
+        }
+    }
+}
+
+body.whiteGreen {
+    background-color: #41aa5b !important;
+    .calculator-grid {
+        background-color: #41aa5b !important;
+        button {
+            background-color: #41aa5b !important;
+            color: #363434;
+            box-shadow: -3px -3px 7px #75af84, 3px 3px 5px rgba(81, 83, 87, 0.438);
+            &::after {
+                box-shadow: inset -3px -3px 7px #75af84, inset 3px 3px 5px rgba(81, 83, 87, 0.438);
+            }
+        }
+        .output {
+            background-color: #41aa5b !important;
+            box-shadow: -3px -3px 7px #75af84, 3px 3px 5px rgba(81, 83, 87, 0.438);
+            &::after {
+                box-shadow: inset -3px -3px 7px #75af84, inset 3px 3px 5px rgba(81, 83, 87, 0.438);
+            }
+            .previous-operand {
+                color: #383636 !important;
+            }
+            .current-operand {
+                color: rgb(46, 44, 44) !important;
+            }
+        }
+    }
+}
+
+body.pink {
+    background-color: #c22f9d !important;
+    .calculator-grid {
+        background-color: #c22f9d !important;
+        button {
+            background-color: #c22f9d !important;
+            color: #e2e2e2;
+            box-shadow: -3px -3px 7px #ca63b0, 3px 3px 5px rgba(58, 59, 61, 0.438);
+            &::after {
+                box-shadow: inset -3px -3px 7px #ca63b0, inset 3px 3px 5px rgba(58, 59, 61, 0.438);
+            }
+        }
+        .output {
+            background-color: #c22f9d !important;
+            box-shadow: -3px -3px 7px #ca63b0, 3px 3px 5px rgba(58, 59, 61, 0.438);
+            &::after {
+                box-shadow: inset -3px -3px 7px #ca63b0, inset 3px 3px 5px rgba(58, 59, 61, 0.438);
+            }
+            .previous-operand {
+                color: #d8d8d8 !important;
+            }
+            .current-operand {
+                color: rgb(236, 236, 236) !important;
+            }
+        }
+    }
+}
+
+.color-btn.active {
+    &::after {
+        content: '\f00c';
+        font-size: 1.5rem;
+    }
+}
+
+.color-scame.active {
+    left: -243px;
+    visibility: visible;
+}
+
+@keyframes loder {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        font-size: 2rem;
+        border: none;
+        outline: none;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 5px;
+        &::after {
+            opacity: 0;
+            content: '';
+            position: absolute;
+            height: 90%;
+            width: 90%;
+            border-radius: 10px;
+            background-color: transparent;
+            transition: all .3s linear;
+        }
+        &:hover {
+            &::after {
+                opacity: 1;
+            }
+            font-size: 1.8rem;
+        }
+    }
+    button.active {
+        &::after {
+            opacity: 1;
+        }
+        font-size: 1.8rem;
+    }
+    .span-tow {
+        grid-column: span 2;
+        &::after {
+            width: 95%;
+        }
+    }
+    .output {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 10px 15px;
+        position: relative;
+        grid-column: 1/-1;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        word-wrap: break-word;
+        word-break: break-all;
+        letter-spacing: 1.5px;
+        word-spacing: 1px;
+        &::after {
+            content: '';
+            position: absolute;
+            height: 90%;
+            width: 97%;
+            top: 5px;
+            left: 5px;
+            border-radius: 10px;
+            background-color: transparent;
+            transition: all .3s linear;
+        }
+        .previous-operand {
+            font-size: 1.5rem;
+        }
+        .current-operand {
+            font-size: 2.5rem;
+        }
+    }
+}
